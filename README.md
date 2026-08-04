@@ -34,9 +34,6 @@ AI-Resume-Reviewer/
 │
 ├── ResumeApp.py
 ├── utils.py
-├── requirements.txt
-├── .gitignore
-├── .env.example
 └── README.md
 ```
 
@@ -104,5 +101,4 @@ Upload your resume (PDF), enter the desired job role, and click **Review Resume*
 
 **Sayan Saha**
 
-GitHub: https://github.com/yourusername
-LinkedIn: https://www.linkedin.com/in/your-linkedin-profile/
+LinkedIn: (https://www.linkedin.com/in/sayan-saha-7922aa238/)
