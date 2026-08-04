@@ -3,14 +3,18 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 from google import genai
-from dotenv import load_dotenv
-import os
+
 
 from utils import extract_text_from_pdf
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    api_key = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(api_key=api_key)
 
 st.set_page_config(
     page_title="AI Resume Reviewer",
@@ -70,14 +74,19 @@ Overall Feedback:
 ...
 """
 
-    with st.spinner("Analyzing Resume..."):
+try:
+     response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt,
+    )
 
-       response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=prompt,
-)
+     result = response.text
 
-    result = response.text
+     st.success("Analysis Complete!")
+     st.markdown(result)
+
+except Exception as e:
+    st.error(f"Error: {e}")
 
     st.success("Analysis Complete!")
 
