@@ -33,6 +33,7 @@ An AI-powered Resume Reviewer built with **Python**, **Streamlit**, and **Google
 AI-Resume-Reviewer/
 │
 ├── ResumeApp.py
+├── requirements.txt
 ├── utils.py
 └── README.md
 ```
